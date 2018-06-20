@@ -1,0 +1,68 @@
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+h1 {
+  font-family: billabong, "billabongregular";
+  text-align: center;
+  font-size: 13rem; /*The em unit is relative to the font-size of the parent, which causes the compounding issue. The rem unit is relative to the root—or the html —element. In this case, it is 10 px*/
+  font-weight: 100;
+  margin: 2rem 0; /* 2rem for top and bottom and 0 for horizontal */
+  letter-spacing: -1px; /* negative indicates shrinking the letter spaceing, positive is to spread the letters apart*/
+  color: black;
+}
+/* font-weight goes from 100 to 900 where 100 is the thinest; */
+
+@font-face {
+  font-family: "billabongregular";
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot");
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff")
+      format("woff"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf")
+      format("truetype"),
+    url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* The @font-face CSS at-rule specifies a custom font with which to display text; the font can be loaded from either a remote server or the user's own computer. If the local() function is provided, specifying a font name to look for on the user's computer, and the user agent finds a match, that local font is used. Otherwise, the font resource specified using the url() function is downloaded and used. */
+.photogrid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.figure {
+  flex-basis: calc(33.33% - 4rem);
+  border: 4px solid #d3d3d3;
+  padding: 2rem;
+  flex-grow: 1;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.photo {
+  width: calc(100% + 4rem);
+  margin: -2rem 0rem 0rem -2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.remove-button {
+  flex-basis: 48%;
+  color: red;
+  font-size: 15px;
+  border: 2px solid #f2f2f2;
+  line-height: 2;
+  padding: 5px;
+}
