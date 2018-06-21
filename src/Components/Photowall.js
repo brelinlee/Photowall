@@ -1,13 +1,19 @@
 import React from "react";
 import Photo from "./Photo";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Photowall(props) {
   return (
-    <div className="photogrid">
-      {props.posts.map((post, index) => (
-        <Photo key={index} post={post} onRemovePhoto={props.removePhoto} />
-      ))}
+    <div>
+      <Link className="addicon" to="/Addphoto" />
+      <div className="photogrid">
+        {props.posts
+          .sort((x, y) => y.id - x.id)
+          .map((post, index) => (
+            <Photo key={index} index={index} post={post} {...props} />
+          ))}
+      </div>
     </div>
   );
 }
@@ -23,7 +29,6 @@ function Photowall(props) {
 //   }
 // }
 Photowall.propTypes = {
-  posts: PropTypes.array.isRequired,
-  onRemovePhoto: PropTypes.func.isRequired
+  posts: PropTypes.array.isRequired
 };
 export default Photowall;
