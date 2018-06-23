@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Title from "./Title";
 import Photowall from "./Photowall";
 import Addphoto from "./Addphoto";
+import Single from "./Single";
 import { Route, Link } from "react-router-dom";
 import { removePost } from "../redux/actions";
 
@@ -47,13 +48,18 @@ class Main extends Component {
             </div>
           )}
         />
-
         <Route
           path="/Addphoto"
           render={({ history }) => <Addphoto {...this.props} />}
+        />
+        <Route
+          path="/single/:photoId"
+          render={params => <Single {...this.props} {...params} />}
         />
       </div>
     );
   }
 }
 export default Main;
+/* on line 57 make sure {...this.props} comes before {...params} so the match object
+from {...params} will not be overwritten */
